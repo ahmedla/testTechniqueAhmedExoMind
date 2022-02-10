@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">testAhmedExoMind</string>
+
+    <string name="home_main_message">Welcome to OpenWeatherMap API</string>
+    <string name="home_button_fetch">Fetch weather data</string>
+    <string name="fetch_retry_message">Recommencer</string>
+    <string name="fetch_progress">%d%%</string>
+    <string name="city_temperature">%s F</string>
+</resources>

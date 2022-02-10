@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion compileVersion
+    buildToolsVersion buildVersion
+
+    defaultConfig {
+        applicationId "com.exomind"
+        minSdkVersion minVersion
+        targetSdkVersion targetVersion
+        versionCode versionCode
+        versionName versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+    buildTypes {
+        debug {
+            buildConfigField(
+                    "String",
+                    "API_KEY",
+                    "\"" + localProperties['OPEN_WEATHER_MAP_API_KEY'] + "\""
+            )
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation appDependencies.kotlinStdlib
+    implementation appDependencies.coreKtx
+    implementation appDependencies.activityKtx
+    implementation appDependencies.appCompat
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.viewmodelKtx
+    implementation appDependencies.livedataKtx
+    implementation appDependencies.runtimeKtx
+    implementation appDependencies.viewmodelSavedState
+    implementation appDependencies.material
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUI
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+
+    implementation dataDependencies.okHttpClient
+    implementation dataDependencies.okHttpInterceptor
+    implementation dataDependencies.gson
+    implementation dataDependencies.gsonConverter
+
+    implementation diDependencies.hiltAndroid
+    kapt diDependencies.hiltAndroidCompiler
+}
