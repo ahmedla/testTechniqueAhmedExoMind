@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.exomind.R
 import com.exomind.domain.model.WeatherEntity
+import kotlin.math.roundToLong
 
 class FetchWeatherAdapter(
     private val context: Context,
@@ -24,7 +25,9 @@ class FetchWeatherAdapter(
         fun bind(city: WeatherEntity) {
             name.text = city.name
             temperature.text = context.getString(
-                R.string.city_temperature, city.temperature.toString()
+                R.string.city_temperature, ((((city.temperature?.minus(32))?.times(5))?.div(9))?.times(
+                                100.0
+                            )?.roundToLong()?.div(100.0)).toString()
             )
             Glide
                 .with(context)

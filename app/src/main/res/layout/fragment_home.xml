@@ -13,6 +13,8 @@
         android:layout_marginTop="50dp"
         android:text="@string/home_main_message"
         android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +26,8 @@
         android:text="@string/home_button_fetch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/green"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeScreenTitle" />
 

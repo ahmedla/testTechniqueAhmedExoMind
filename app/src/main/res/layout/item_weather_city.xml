@@ -12,20 +12,23 @@
         android:layout_height="30dp"
         android:contentDescription="@android:string/unknownName"
         android:src="@mipmap/ic_launcher"
+        android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weatherCityName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:textSize="12sp"
+        android:layout_width="304dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/weatherCityTemperature"
         app:layout_constraintStart_toEndOf="@+id/weatherIcon"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Rennes" />
+        tools:text="Paris" />
 
     <TextView
         android:id="@+id/weatherCityTemperature"
@@ -35,6 +38,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
         tools:text="70" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
